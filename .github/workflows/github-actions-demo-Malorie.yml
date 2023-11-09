@@ -10,21 +10,22 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: 🚀 Checkout repository
+    - name: Checkout repository
       uses: actions/checkout@v2
 
-    - name: 📦 Set up Node.js
-      uses: actions/setup-node@v3
+    - name: Set up Node.js
+      uses: actions/setup-node@v4
       with:
-        node-version: 14  # Utilisez la version de Node.js que vous utilisez pour développer
+        node-version: '14'
 
-    - name: ⬇️ Install dependencies
+    - name: Install dependencies
       run: npm install
 
-    - name: 🛠️ Build and test
-      run: |
-        npm run build  # Remplacez par la commande de build de votre application
-        npm test       # Remplacez par la commande de test de votre application
+    - name: Build
+      run: npm run build
 
-    - name: 🏁 Workflow completed!
-      run: echo "✅ Node.js CI workflow completed successfully."
+    - name: Lint and format
+      run: npm run fix
+
+    - name: Test
+      run: npm test
