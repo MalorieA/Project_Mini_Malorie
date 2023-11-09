@@ -1,4 +1,7 @@
-import { helloWorld } from './hello-world';
+// Importez le module du serveur
+import { start } from './Serveur';
 
-const greet = helloWorld();
-console.log(greet);
+// Démarrez le serveur
+start();
+
+console.log('DEMARRAGEEEEEEE...');
