@@ -1,0 +1,30 @@
+name: Node.js CI
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: 🚀 Checkout repository
+      uses: actions/checkout@v2
+
+    - name: 📦 Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 14  # Utilisez la version de Node.js que vous utilisez pour développer
+
+    - name: ⬇️ Install dependencies
+      run: npm install
+
+    - name: 🛠️ Build and test
+      run: |
+        npm run build  # Remplacez par la commande de build de votre application
+        npm test       # Remplacez par la commande de test de votre application
+
+    - name: 🏁 Workflow completed!
+      run: echo "✅ Node.js CI workflow completed successfully."
